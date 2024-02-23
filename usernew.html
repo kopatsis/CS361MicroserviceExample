@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <h1>User Info: </h1>
+    <pre id="dataDisplay"></pre>
+    <button id="logout">Logout</button>
+    <button><a href="/">Home</a></button>
+</body>
+<script>
+    const data = '%%DATA_PLACEHOLDER%%';
+    document.getElementById('dataDisplay').textContent = data;
+
+    localStorage.setItem('user', data);
+
+    console.log(JSON.parse(localStorage.getItem('user')))
+
+    document.getElementById('logout').addEventListener('click', () => {
+        localStorage.removeItem('user')
+        window.location.href = "https://cs361l.uw.r.appspot.com/logout"
+    })
+</script>
+</html>
